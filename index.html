@@ -7,29 +7,37 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      background: #f4f4f4;
+      color: #333;
       margin: 0;
       padding: 0;
     }
     header {
-      background: #0d6efd;
+      background-color: #0d6efd;
       color: white;
       padding: 20px;
       text-align: center;
     }
     section {
+      background-color: #ffffff;
+      margin: 20px;
       padding: 20px;
-      margin: 10px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #ccc;
+      border-radius: 6px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
     h2 {
       color: #0d6efd;
+      margin-bottom: 10px;
+    }
+    ul {
+      padding-left: 20px;
     }
     a {
       color: #0d6efd;
       text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -37,46 +45,42 @@
 
   <header>
     <h1>💻 Portfólio: Projeto m2V</h1>
-    <p>Simulador de orçamento para piso, argamassa e rejunte</p>
+    <p>Simulador de orçamento para materiais de piso</p>
   </header>
 
-  <section id="intro">
+  <section id="sobre">
     <h2>📌 Sobre o projeto</h2>
-    <p>O <strong>m2V</strong> É uma calculadora simples para estimar os custos de materiais na aplicação
-      de pisos, incluindo argamassa e rejunte. O usuário informa os dados, 
-      visualiza os resultados e os mantém salvos até que deseje limpar.</p>
+    <p>O <strong>m2V</strong> é um simulador web que ajuda a calcular o custo estimado de instalação de pisos, levando em conta preços por metro, argamassa e rejunte. Os dados permanecem na tela até que o usuário decida limpar.</p>
   </section>
 
   <section id="funcionalidades">
     <h2>⚙️ Funcionalidades</h2>
     <ul>
-      <li>Cálculo estimado baseado em área e valor por metro</li>
-      <li>Exclusão manual dos dados pelo usuário</li>
-      <li>Interface direta e responsiva</li>
+      <li>Entrada de valor por metro quadrado</li>
+      <li>Exibição automática de estimativas de custo</li>
+      <li>Armazenamento dos dados com <code>localStorage</code></li>
+      <li>Botão para limpar os dados manualmente</li>
     </ul>
   </section>
 
   <section id="tecnologias">
     <h2>🧪 Tecnologias utilizadas</h2>
     <ul>
-      <li>HTML, CSS e JavaScript puro</li>
-      <li>GitHub Pages para publicação</li>
+      <li>HTML, CSS e JavaScript</li>
+      <li>GitHub Pages para hospedagem</li>
+      <li>localStorage para persistência de dados</li>
     </ul>
-  </section>
-
-  <section id="screenshots">
-    <h2>🖼️ Capturas de tela</h2>
-    <p>Inclua aqui imagens da interface do projeto. Você pode usar comandos <code>&lt;img src="imagem.png" alt="print do site"&gt;</code> para exibir suas capturas.</p>
   </section>
 
   <section id="github">
     <h2>🔗 Repositório</h2>
-    <p><a href="https://usssennin.github.io/m2V/" target="_blank">Ver no GitHub</a></p>
+    <p>Acesse o código completo no GitHub:</p>
+    <p><a href="https://github.com/UssSenniN/m2V" target="_blank">https://github.com/UssSenniN/m2V</a></p>
   </section>
 
   <section id="autor">
     <h2>👨‍💻 Sobre o autor</h2>
-    <p>Desenvolvido por <strong>Andreilson</strong>, entusiasta de soluções digitais voltadas para lojas de mateiras de construção, automação e ferramentas acessíveis via web.</p>
+    <p>Desenvolvido por <strong>Andreilson</strong>, apaixonado por criar soluções digitais simples e funcionais, com foco em ferramentas para o dia a dia e na construção civil.</p>
   </section>
 
 </body>
