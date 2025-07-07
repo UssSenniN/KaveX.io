@@ -1,84 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Calculadora de Cerâmica e Porcelanato</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio - Projeto m2V</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
-    h2 { color: #444; }
-    input, select, button { margin: 8px 0; padding: 8px; width: 100%; }
-    .resultado { background-color: #f0f0f0; padding: 12px; margin-top: 20px; font-weight: bold; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0d6efd;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      padding: 20px;
+      margin: 10px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    h2 {
+      color: #0d6efd;
+    }
+    a {
+      color: #0d6efd;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-  <h2>Calculadora de Revestimento</h2>
-  
-  <label>ID:</label>
-  <input type="text" id="idProduto">
 
-  <label>Área Total (m²):</label>
-  <input type="number" id="areaTotal">
+  <header>
+    <h1>💻 Portfólio: Projeto m2V</h1>
+    <p>Simulador de orçamento para piso, argamassa e rejunte</p>
+  </header>
 
-  <label>Área por Caixa (m²):</label>
-  <input type="number" id="areaPorCaixa">
+  <section id="intro">
+    <h2>📌 Sobre o projeto</h2>
+    <p>O <strong>m2V</strong> É uma calculadora simples para estimar os custos de materiais na aplicação
+      de pisos, incluindo argamassa e rejunte. O usuário informa os dados, 
+      visualiza os resultados e os mantém salvos até que deseje limpar.</p>
+  </section>
 
-  <label>Valor por m² (R$):</label>
-  <input type="number" id="valorM2">
+  <section id="funcionalidades">
+    <h2>⚙️ Funcionalidades</h2>
+    <ul>
+      <li>Cálculo estimado baseado em área e valor por metro</li>
+      <li>Exclusão manual dos dados pelo usuário</li>
+      <li>Interface direta e responsiva</li>
+    </ul>
+  </section>
 
-  <label>Margem de Sobra (%):</label>
-  <input type="number" id="margem">
+  <section id="tecnologias">
+    <h2>🧪 Tecnologias utilizadas</h2>
+    <ul>
+      <li>HTML, CSS e JavaScript puro</li>
+      <li>GitHub Pages para publicação</li>
+    </ul>
+  </section>
 
-  <button onclick="calcular()">Calcular</button>
+  <section id="screenshots">
+    <h2>🖼️ Capturas de tela</h2>
+    <p>Inclua aqui imagens da interface do projeto. Você pode usar comandos <code>&lt;img src="imagem.png" alt="print do site"&gt;</code> para exibir suas capturas.</p>
+  </section>
 
-  <div class="resultado" id="resultados"></div>
+  <section id="github">
+    <h2>🔗 Repositório</h2>
+    <p><a href="https://usssennin.github.io/m2V/" target="_blank">Ver no GitHub</a></p>
+  </section>
 
-  <h3>Escolha o Tipo de Rejunte:</h3>
-  <label><input type="radio" name="rejunte" value="ceramica" checked> Cerâmica</label>
-  <label><input type="radio" name="rejunte" value="porcelanato"> Porcelanato</label>
+  <section id="autor">
+    <h2>👨‍💻 Sobre o autor</h2>
+    <p>Desenvolvido por <strong>Andreilson</strong>, entusiasta de soluções digitais voltadas para lojas de mateiras de construção, automação e ferramentas acessíveis via web.</p>
+  </section>
 
-  <h3>Parcelamento:</h3>
-  <div class="resultado" id="parcelamento"></div>
-
-  <script>
-    function arredondar(valor) {
-      return (valor % 1 >= 0.5) ? Math.ceil(valor) : Math.floor(valor);
-    }
-
-    function calcular() {
-      const areaTotal = parseFloat(document.getElementById('areaTotal').value);
-      const areaPorCaixa = parseFloat(document.getElementById('areaPorCaixa').value);
-      const valorM2 = parseFloat(document.getElementById('valorM2').value);
-      const margem = parseFloat(document.getElementById('margem').value);
-
-      const areaComSobra = areaTotal + (areaTotal * (margem / 100));
-      const caixas = Math.ceil(areaComSobra / areaPorCaixa);
-      const valorTotal = areaComSobra * valorM2;
-
-      const argamassaPorM2 = areaTotal > 50 ? 3 : 3.5;
-      const quantidadeArgamassa = Math.ceil(areaComSobra / argamassaPorM2);
-      const tipoRejunte = document.querySelector('input[name="rejunte"]:checked').value;
-
-      let quantidadeRejunte = areaComSobra * 0.15;
-      quantidadeRejunte = (tipoRejunte === 'ceramica') ? arredondar(quantidadeRejunte) : Math.round(quantidadeRejunte);
-
-      document.getElementById('resultados').innerHTML = `
-        <p>Caixas necessárias: <strong>${caixas}</strong></p>
-        <p>Área com margem: <strong>${areaComSobra.toFixed(2)} m²</strong></p>
-        <p>Valor total do revestimento: <strong>R$ ${valorTotal.toFixed(2)}</strong></p>
-        <p>Quantidade de argamassa: <strong>${quantidadeArgamassa} sacos</strong></p>
-        <p>Quantidade de rejunte (${tipoRejunte}): <strong>${quantidadeRejunte} unidades</strong></p>
-      `;
-
-      // Parcelamento
-      const parcelDiv = document.getElementById('parcelamento');
-      if (valorTotal < 400) {
-        const parcelas = Math.ceil(valorTotal / 40);
-        parcelDiv.innerHTML = `Parcelamento: ${parcelas}x de R$ ${(valorTotal / parcelas).toFixed(2)} (mínimo R$ 40,00)`;
-      } else {
-        const valorParcela = (valorTotal / 10).toFixed(2);
-        parcelDiv.innerHTML = `Parcelamento: até 10x de R$ ${valorParcela} sem juros`;
-      }
-    }
-  </script>
 </body>
 </html>
